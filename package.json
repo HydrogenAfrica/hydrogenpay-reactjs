@@ -1,31 +1,40 @@
 {
-  "name": "@amoskeyz/hp-reactjs",
-  "version": "0.0.5",
+  "name": "hydrogenpay-reactjs",
+  "version": "0.0.1",
   "description": "Hydrogen's Pay React Js wrapper",
-  "author": "amoslv",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amoskeyz/hp-reactjs.git"
-  },
-  "main": "dist/index.es.js",
+  "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "source": "src/index",
   "files": [
     "lib",
-    "src",
-    "dist"
+    "dist",
+    "src"
   ],
+  "author": "hydrogenpay <support@hydrogenpay.com> (https://github.com/HydrogenAfrica)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HydrogenAfrica/hydrogenpay-reactjs.git"
+  },
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs",
     "start": "rollup -c --bundleConfigAsCjs -w",
     "prepack": "npm install && npm run rollup"
   },
+  "keywords": [
+    "hydrogen",
+    "hydrogenpay",
+    "react",
+    "react-Js",
+    "hydrogenpay-reactjs",
+    "hydrogenpayment"
+  ],
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.4",
@@ -41,13 +50,19 @@
     "typescript": "^5.2.2"
   },
   "bugs": {
-    "url": "https://github.com/amoskeyz/hp-reactjs/issues"
+    "url": "https://github.com/HydrogenAfrica/hydrogenpay-reactjs/issues"
   },
-  "homepage": "https://github.com/amoskeyz/hp-reactjs#readme",
+  "homepage": "https://github.com/HydrogenAfrica/hydrogenpay-reactjs#readme",
   "directories": {
     "example": "example"
   },
-  "keywords": [
-    "paymentgateway"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "resolutions": {
+    "@types/react": "^18.3.3"
+  },
+  "workspaces": [
+    "example"
   ]
 }
