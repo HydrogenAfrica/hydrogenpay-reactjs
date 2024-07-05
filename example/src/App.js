@@ -1,5 +1,5 @@
 import React from "react";
-import { HydrogenPaymentButton } from "hydrogenpay-reactjs";
+import { useHydrogenPayment, HydrogenPaymentButton } from "hydrogenpay-reactjs";
 
 function App() {
   const options = {
@@ -24,13 +24,24 @@ function App() {
     setTimeout(() => closeCheckout(), 2000);
   };
 
+  const PayButton = () => {
+    const initializePayment = useHydrogenPayment({
+      ...options,
+      onSuccess,
+      onClose,
+    });
+
+    return <button onClick={() => initializePayment()}>Pay</button>;
+  };
+
   return (
     <div className="App">
-      <HydrogenPaymentButton
+      <PayButton />
+      {/* <HydrogenPaymentButton
         text="Payment"
         className="text-primary"
         options={{ ...options, onSuccess, onClose }}
-      />
+      /> */}
     </div>
   );
 }

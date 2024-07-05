@@ -38,10 +38,8 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
       }
     );
 
-
     //get payment reference
     const transactionRef = await getRef;
-
 
     //pooling transaction status
     let checkStatus =
@@ -54,9 +52,7 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
         );
         if (checkPaymentStatus?.status === "Paid") {
           //@ts-ignore
-          options.onSuccess &&
-            //@ts-ignore
-            options.onSuccess(checkPaymentStatus, window?.closeModal);
+          options.onSuccess && options.onSuccess(checkPaymentStatus, () => window?.closeModal({ transactionRef }));
           clearInterval(checkStatus);
         }
       }, 2000);

@@ -5,7 +5,6 @@ import { openHydrogenPayModal, HydrogenPaymentTypes } from "./helpers";
 export default function useHydrogenPayment(
   payload: HydrogenPaymentTypes
 ): () => void {
-  
   //load script
   const [scriptError, loaded] = usePaymentScript(payload.mode);
 
