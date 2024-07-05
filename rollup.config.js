@@ -13,13 +13,13 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        exports: "named",
+        exports: 'named',
         sourcemap: true,
       },
       {
         file: packageJson.module,
-        format: "es",
-        exports: "named",
+        format: 'es',
+        exports: 'named',
         sourcemap: true,
       },
     ],
@@ -27,10 +27,7 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        compilerOptions: { lib: ["es5", "es6", "dom"], target: "es5" },
-      }),
+      typescript({ tsconfig: "./tsconfig.json" }),
     ],
     external: ["react", "react-dom"],
   },
