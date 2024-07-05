@@ -19,9 +19,9 @@ function App() {
   const onClose = (close) => {
     console.log(close);
   };
-  const onSuccess = (response, closeCheckout) => {
+  const onSuccess = (response, closeModal) => {
     console.log(response);
-    setTimeout(() => closeCheckout(), 2000);
+    setTimeout(() => closeModal(), 2000);
   };
 
   const PayButton = () => {
