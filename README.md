@@ -11,11 +11,15 @@ Hydrogen ReactJS SDK allows you to accept payment using in your react applicatio
 Register for a merchant account on [Hydrogen Merchant Dashboard](https://dashboard.hydrogenpay.com) to get started.
 
 ```bash
-npm install --save  hydrogenpay-reactjs
+npm install --save hydrogenpay-reactjs
 ```
 
 ```bash
 yarn add hydrogenpay-reactjs
+```
+
+```bash
+pnpm add hydrogenpay-reactjs
 ```
 
 ## Support
@@ -29,7 +33,6 @@ You should already have your token, If not, go to [https://dashboard.hydrogenpay
 ### Usage 1 - As a React Hook
 
 ```jsx
-import React from "react";
 import { useHydrogenPayment } from "hydrogenpay-reactjs";
 
 function App() {
@@ -49,6 +52,7 @@ function App() {
   const onClose = (close) => {
     console.log(close);
   };
+
   const onSuccess = (response, closeModal) => {
     console.log(response);
     setTimeout(() => closeModal(), 2000);
@@ -63,8 +67,9 @@ function App() {
 
     return <button onClick={() => initializePayment()}>Pay</button>;
   };
+
   return (
-    <div className="App">
+    <div className="...">
       <PayButton />
     </div>
   );
@@ -76,7 +81,6 @@ export default App;
 ### Usage 2 - As a Button Component
 
 ```jsx
-import React from "react";
 import { HydrogenPaymentButton } from "hydrogenpay-reactjs";
 
 function App() {
@@ -96,6 +100,7 @@ function App() {
   const onClose = (close) => {
     console.log(close);
   };
+
   const onSuccess = (response, closeModal) => {
     console.log(response);
     setTimeout(() => closeModal(), 2000);
@@ -105,7 +110,7 @@ function App() {
     <div className="App">
       <HydrogenPaymentButton
         text="Payment"
-        className="text-primary"
+        className="..."
         options={{ ...options, onSuccess, onClose }}
       />
     </div>
@@ -115,7 +120,7 @@ function App() {
 export default App;
 ```
 
-## API's
+## Options Type
 
 | Name         | Type       | Required | Desc                                          |
 | ------------ | ---------- | -------- | --------------------------------------------- |
