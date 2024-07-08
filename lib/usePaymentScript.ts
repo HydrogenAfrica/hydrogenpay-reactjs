@@ -9,7 +9,7 @@ const usePaymentScript = (mode: string) => {
   const testScriptUrl =
     "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1.js";
   const liveScriptUrl =
-    "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1.js";
+    "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js";
 
   const [state, setState] = useState<ScriptType>({
     loaded: false,
