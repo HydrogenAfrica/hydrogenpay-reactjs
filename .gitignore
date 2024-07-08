@@ -30,10 +30,3 @@ yarn-error.log*
 #example
 #example
 .history
-
-
-page: Int
-    pageSize: Int
-    search: String
-    from: Date
-    to: Date
