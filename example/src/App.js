@@ -36,12 +36,12 @@ function App() {
 
   return (
     <div className="App">
-      {/* <PayButton /> */}
-      <HydrogenPaymentButton
+      <PayButton />
+      {/* <HydrogenPaymentButton
         text="Payment"
         className="text-primary"
         options={{ ...options, onSuccess, onClose }}
-      />
+      /> */}
     </div>
   );
 }
