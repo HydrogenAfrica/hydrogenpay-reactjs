@@ -48,7 +48,7 @@ const usePaymentScript = (mode: string) => {
         paymentScript.removeEventListener("load", onLoadScript);
       };
     } catch (error) {}
-  }, []);
+  }, [mode]);
 
   return [state.error, state.loaded];
 };

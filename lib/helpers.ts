@@ -10,12 +10,13 @@ export interface HydrogenPaymentTypes {
   isRecurring?: boolean;
   frequency?: number;
   endDate?: string;
-  onClose?: (event: Event) => void;
-  onSuccess?: (event: Event) => void;
+  onClose?: (event: any) => void;
+  onSuccess?: (event: any, closeModal: any) => void;
   mode: "LIVE" | "TEST";
 }
 
 export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
+  let checkStatus: any;
   // @ts-ignore
   if (window.handlePgData) {
     // @ts-ignore
@@ -30,6 +31,9 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
         isRecurring: options.isRecurring,
         frequency: options.frequency,
         CustomerName: options.customerName,
+        ...(options.isRecurring && options.endDate
+          ? { endDate: options.endDate }
+          : {}),
       },
       options.token,
       (e: any) => {
@@ -42,19 +46,26 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
     const transactionRef = await getRef;
 
     //pooling transaction status
-    let checkStatus =
-      transactionRef &&
-      setInterval(async function () {
+
+    if (transactionRef && transactionRef !== "Error in initiating payment") {
+      checkStatus = setInterval(async function () {
         //@ts-ignore
         const checkPaymentStatus = await window.handlePaymentStatus(
           transactionRef,
           options.token
         );
+
         if (checkPaymentStatus?.status === "Paid") {
-          //@ts-ignore
-          options.onSuccess && options.onSuccess(checkPaymentStatus, () => window?.closeModal({ transactionRef }));
+          options.onSuccess &&
+            options.onSuccess(checkPaymentStatus, () =>
+              //@ts-ignore
+              window?.closeModal({ transactionRef })
+            );
           clearInterval(checkStatus);
         }
       }, 2000);
+    } else {
+      console.error(`ERROR: ${transactionRef}`);
+    }
   }
 }
