@@ -7,12 +7,12 @@ function App() {
     email: "test@mail.com", // REQUIRED
     customerName: "John Doe", // REQUIRED
     meta: "ewr34we4w", // OPTIONAL
-    token: "02B44E61C25BDB6C52E50D0B6A4E1016F993CE6B625BF7812A018CE43C886872", // REQUIRED
+    token: "E2E411B102072296C73F76339497FB8529FF552F0D6817E0F3B46A243961CA21", // REQUIRED
     description: "Test description", // OPTIONAL
     currency: "NGN", // REQUIRED
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
-    autoStart: false, // OPTIONAL
+    endDate: "2025-10-02",// OPTIONAL but (REQUIRED when isRecurring: true)
     mode: "TEST", //REQUIRED
   };
 
@@ -36,12 +36,12 @@ function App() {
 
   return (
     <div className="App">
-      <PayButton />
-      {/* <HydrogenPaymentButton
+      {/* <PayButton /> */}
+      <HydrogenPaymentButton
         text="Payment"
         className="text-primary"
         options={{ ...options, onSuccess, onClose }}
-      /> */}
+      />
     </div>
   );
 }

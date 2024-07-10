@@ -46,6 +46,7 @@ function App() {
     currency: "NGN", // REQUIRED
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
+    endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
     mode: "TEST", //REQUIRED
   };
 
@@ -94,6 +95,7 @@ function App() {
     currency: "NGN", // REQUIRED
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
+    endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
     mode: "TEST", //REQUIRED
   };
 
@@ -122,19 +124,20 @@ export default App;
 
 ## Options Type
 
-| Name         | Type       | Required | Desc                                          |
-| ------------ | ---------- | -------- | --------------------------------------------- |
-| currency     | `String`   | Required | The currency for the transaction e.g NGN, USD |
-| email        | `String`   | Required | The email of the user to be charged           |
-| description  | `String`   | Optional | The transaction description                   |
-| customerName | `String`   | Required | The fullname of the user to be charged        |
-| amount       | `Number`   | Required | The transaction amount                        |
-| token        | `String`   | Required | Your token or see above step to get yours     |
-| onSuccess    | `Function` | Optional | Callback when transaction is successful       |
-| onClose      | `Function` | Optional | Callback when transaction is closed of cancel |
-| text         | `String`   | Optional | Payment Button Text. Default: Hydrogen Pay    |
-| className    | `String`   | Optional | Payment Button style                          |
-| children     | `Function` | Optional | React JSX Component                           |
-| isRecurring  | `boolean`  | Optional | Recurring Payment                             |
-| frequency    | `String`   | Optional | Recurring Payment frequency                   |
-| mode         | `String`   | Required | Payment Mode e.g LIVE, TEST (default: TEST)   |
+| Name         | Type       | Required | Desc                                                                        |
+| ------------ | ---------- | -------- | --------------------------------------------------------------------------- |
+| currency     | `String`   | Required | The currency for the transaction e.g NGN, USD                               |
+| email        | `String`   | Required | The email of the user to be charged                                         |
+| description  | `String`   | Optional | The transaction description                                                 |
+| customerName | `String`   | Required | The fullname of the user to be charged                                      |
+| amount       | `Number`   | Required | The transaction amount                                                      |
+| token        | `String`   | Required | Your token or see above step to get yours                                   |
+| onSuccess    | `Function` | Optional | Callback when transaction is successful                                     |
+| onClose      | `Function` | Optional | Callback when transaction is closed of cancel                               |
+| text         | `String`   | Optional | Payment Button Text. Default: Hydrogen Pay                                  |
+| className    | `String`   | Optional | Payment Button style                                                        |
+| children     | `Function` | Optional | React JSX Component                                                         |
+| isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
+| frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
+| mode         | `String`   | Required | Payment Mode e.g LIVE, TEST (default: TEST)                                 |
+| endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
