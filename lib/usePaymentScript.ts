@@ -6,8 +6,7 @@ interface ScriptType {
 }
 
 const usePaymentScript = (mode: string) => {
-  // const testScriptUrl = "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1.js";
-  const liveScriptUrl =
+  const scriptUrl =
     "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js";
 
   const [state, setState] = useState<ScriptType>({
@@ -18,7 +17,7 @@ const usePaymentScript = (mode: string) => {
   useEffect(() => {
     try {
       let paymentScript = document.createElement("script");
-      paymentScript.src = liveScriptUrl;
+      paymentScript.src = scriptUrl;
       paymentScript.async = true;
       paymentScript.id = Math.floor(Math.random() * 100).toString();
 
