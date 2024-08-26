@@ -6,7 +6,7 @@ export default function useHydrogenPayment(
   payload: HydrogenPaymentTypes
 ): () => void {
   //load script
-  const [scriptError, loaded] = usePaymentScript(payload.mode);
+  const [scriptError, loaded] = usePaymentScript(payload?.apiKey);
 
   function paymentInit(): void {
     if (scriptError) {
