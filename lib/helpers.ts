@@ -6,13 +6,14 @@ export interface HydrogenPaymentTypes {
   description?: string;
   redirectUrl?: string;
   meta?: string;
-  token: string;
+  token?: string;
   isRecurring?: boolean;
   frequency?: number;
   endDate?: string;
   onClose?: (event: any) => void;
   onSuccess?: (event: any, closeModal: any) => void;
-  mode: "LIVE" | "TEST";
+  mode?: "LIVE" | "TEST" | undefined;
+  apiKey: string;
 }
 
 export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
@@ -35,7 +36,7 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
           ? { endDate: options.endDate }
           : {}),
       },
-      options.token,
+      options.apiKey,
       (e: any) => {
         options.onClose && options.onClose(e);
         clearInterval(checkStatus);
@@ -52,7 +53,7 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
         //@ts-ignore
         const checkPaymentStatus = await window.handlePaymentStatus(
           transactionRef,
-          options.token
+          options.apiKey
         );
 
         if (checkPaymentStatus?.status === "Paid") {

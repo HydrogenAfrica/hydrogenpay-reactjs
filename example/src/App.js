@@ -7,13 +7,12 @@ function App() {
     email: "test@mail.com", // REQUIRED
     customerName: "John Doe", // REQUIRED
     meta: "ewr34we4w", // OPTIONAL
-    token: "E2E411B102072296C73F76339497FB8529FF552F0D6817E0F3B46A243961CA21", // REQUIRED
+    apiKey: "PK_TEST_cca53e0b3bc7847aff94502b8a585f84", // REQUIRED
     description: "Test description", // OPTIONAL
     currency: "NGN", // REQUIRED
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
     endDate: "2025-10-02",// OPTIONAL but (REQUIRED when isRecurring: true)
-    mode: "TEST", //REQUIRED
   };
 
   const onClose = (close) => {
