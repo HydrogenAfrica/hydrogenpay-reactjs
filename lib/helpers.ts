@@ -14,6 +14,13 @@ export interface HydrogenPaymentTypes {
   onSuccess?: (event: any, closeModal: any) => void;
   mode?: "LIVE" | "TEST" | undefined;
   apiKey: string;
+  transactionRef?: string;
+  metaData?: Array<{
+    fieldName: string;
+    fieldDefaultValue: string;
+    fieldKey: string;
+    fieldType: number; 
+  }>;
 }
 
 export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
@@ -35,6 +42,8 @@ export async function openHydrogenPayModal(options: HydrogenPaymentTypes) {
         ...(options.isRecurring && options.endDate
           ? { endDate: options.endDate }
           : {}),
+        transactionRef: options.transactionRef || '',
+        metaData: options.metaData || [],
       },
       options.apiKey,
       (e: any) => {

@@ -2,6 +2,10 @@ import React from "react";
 import { useHydrogenPayment, HydrogenPaymentButton } from "hydrogenpay-reactjs";
 
 function App() {
+  const generateTransactionRef = () => {
+    return `txn_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+  };
+
   const options = {
     amount: 500, // REQUIRED
     email: "test@mail.com", // REQUIRED
@@ -12,7 +16,11 @@ function App() {
     currency: "NGN", // REQUIRED
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
-    endDate: "2025-10-02",// OPTIONAL but (REQUIRED when isRecurring: true)
+    endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
+    transactionRef: generateTransactionRef(),
+		metaData: [
+				{ fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+			]
   };
 
   const onClose = (close) => {

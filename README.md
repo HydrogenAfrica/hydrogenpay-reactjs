@@ -1,5 +1,5 @@
 <p align="center">
-<img width="400" valign="top" src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" data-canonical-src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" style="max-width:100%; ">
+<img width="400" valign="top" src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" data-canonical-src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" style="max-width:100%; ">
 </p>
 
 # Hydrogen ReactJS SDK
@@ -47,6 +47,10 @@ function App() {
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
     endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
+    transactionRef: `TXR_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+		metaData={[
+			// 	{ fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+			]}
   };
 
   const onClose = (close) => {
@@ -95,6 +99,10 @@ function App() {
     frequency: 1, // OPTIONAL
     isRecurring: false, // OPTIONAL
     endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
+    transactionRef: `TXR_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
+		metaData={[
+			// 	{ fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+			]}
   };
 
   const onClose = (close) => {
@@ -138,3 +146,5 @@ export default App;
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
+| transactionRef      | `String`   | Optional | Custom Transaction reference |
+| metaData      | `Array`   | Optional | Transaction meta data |

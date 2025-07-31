@@ -7,7 +7,7 @@ interface ScriptType {
 
 const usePaymentScript = (mode: string) => {
   const scriptUrl =
-    "https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js";
+    "https://js.hydrogenpay.com/inline.js";
 
   const [state, setState] = useState<ScriptType>({
     loaded: false,
