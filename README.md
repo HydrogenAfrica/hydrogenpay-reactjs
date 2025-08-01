@@ -100,9 +100,9 @@ function App() {
     isRecurring: false, // OPTIONAL
     endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
     transactionRef: `TXR_${Date.now()}_${Math.floor(Math.random() * 1000)}`,
-		metaData: {[
+		metaData: [
 			// 	{ fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
-			]}
+		]
   };
 
   const onClose = (close) => {
