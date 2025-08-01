@@ -18,9 +18,9 @@ function App() {
     isRecurring: false, // OPTIONAL
     endDate: "2025-10-02", // OPTIONAL but (REQUIRED when isRecurring: true)
     transactionRef: generateTransactionRef(),
-		metaData: [
-				{ fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
-			]
+    metaData: [
+      { fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+    ]
   };
 
   const onClose = (close) => {
